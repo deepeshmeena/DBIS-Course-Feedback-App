@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Feedback App</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="images/icons/favicon1.ico"/>
+  <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+
+<script type="text/javascript">
+    function setbg(color)
+  {
+  document.getElementById("styled").style.background=color
+  }
+</script>
+<style type="text/css">
+
+
+  
+
+div.gallery {
+    margin: 5px;
+    border: 3px solid #ccc;
+    float: left;
+    width: 327px;
+    padding: 1px;
+
+}
+
+div.gallery:hover {
+    border: 1px solid #777;
+}
+
+div.gallery img {
+    width: 100%;
+    height: auto;
+}
+
+div.desc {
+    padding: 10px;
+    text-align: center;
+}
+#styled {
+  width: 600px;
+  height: 120px;
+  border: 4px inset #9152f8;
+  padding: 5px;
+  font-family: Tahoma, sans-serif;
+  background-image: url(bg.gif);
+
+  background-position: bottom right;
+  background-repeat: no-repeat;
+}
+</style>
+
+</head>
+<body>
+
+<center>
+
+   <a  href="http://localhost:8080/dbproject/Login" ><h1>Feedback WebApp</h1></a>
+  <h2> Team Members</h2><br><br>
+<div class="gallery">
+  <a target="_blank" href="https://www.facebook.com/1Deepesh">
+    <img src="images/deepesh.jpg" align="left"alt="deepesh" width="1200" height="800" >
+  </a>
+  <div class="desc">Deepesh</div>
+</div>
+
+<div class="gallery">
+  <a target="_blank" href="https://www.facebook.com/deepak.iitbcs">
+    <img src="images/deepak.jpg"  align="left"alt="Deepak" width="600" height="400">
+  </a>
+  <div class="desc">Deepak</div>
+</div>
+
+<div class="gallery">
+  <a target="_blank" href="https://www.facebook.com/silu.panda.10">
+    <img src="images/silu.jpg" align="right"alt="Silu" width="600" height="400">
+  </a>
+  <div class="desc">Silu</div>
+</div>
+
+<div class="gallery">
+  <a target="_blank" href="https://www.facebook.com/anshu.ahirwar.33">
+    <img src="images/anshu.jpg"  align="right"alt="Anshu" width="600" height="400">
+  </a>
+  <div class="desc">Anshu</div>
+</div><br><br>
+</center>
+<br><br>
+<center></center><H3> Please Give some suggestions or comments about our App</H3><br><br></center>
+
+<center>
+  <!-- <form id="nameform" action="superuser_home" method="post" > -->
+<textarea name="styled" id="styled" onfocus="this.value=''; setbg('#efccff');" onblur="setbg('white')">Enter your comment here...</textarea>
+
+<div class="container-login100-form-btn"> 
+  <button class="login100-form-btn" onclick="Feedback()">  
+    Submit 
+  </button> 
+</div>
+<script type="text/javascript">
+    function Feedback() {
+        var p = document.getElementById("styled");
+        var feedbackData = p.value;
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                console.log("success");
+                p.value = "";
+            }
+        };
+        
+        xhttp.open("GET", "app_index?feedbackData=" + feedbackData, true);
+        xhttp.send();
+    }
+</script>
+
+<!-- </form> -->
+</center>
+</body>
+</html>
